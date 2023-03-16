@@ -19,7 +19,7 @@ contract SpendLimit {
         bool isEnabled;
     }
 
-    mapping(address => Limit) public limits; // token => Limit
+    mapping(address => Limit) limits; // token => Limit
 
     modifier onlyAccount() {
         require(
@@ -70,7 +70,7 @@ contract SpendLimit {
         }
     }
 
-    // storage-modifying private function called by either setSpendingLimit or removeSpendingLimit
+    // storage-modifying private function called by either `dingLimit or removeSpendingLimit
     function _updateLimit(address _token, uint _limit, uint _available, uint _resetTime, bool _isEnabled) private {
         Limit storage limit = limits[_token];
         limit.limit = _limit;
@@ -108,5 +108,8 @@ contract SpendLimit {
         limits[_token] = limit;
     }
 
+    function getLimit(address _token) public view returns (uint) {
+        return limits[_token].limit;
+    }
 }
 

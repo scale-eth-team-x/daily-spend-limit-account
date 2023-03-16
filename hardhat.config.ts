@@ -5,7 +5,9 @@ module.exports = {
   zksolc: {
     version: "1.3.1",
     compilerSource: "binary",
-    settings: {},
+      settings: {
+        isSystem: true,
+      },
   },
   defaultNetwork: "zkSyncTestnet",
 
